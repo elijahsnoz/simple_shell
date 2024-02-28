@@ -18,20 +18,16 @@ int execute_command(const char *command)
 		perror("fork");
 		return (-1);
 	}
-	
 	if (pid == 0)
 	{
 		char **argv = (char **)malloc(2 * sizeof(char *));
-		
 		if (argv == NULL)
 		{
 			perror("malloc");
 			_exit(EXIT_FAILURE);
 		}
-		
 		argv[0] = (char *)command;
-		argv[1] = NULL;
-		
+		argv[1] = NULL;		
 		if (execve(command, argv, NULL) == -1)
 		{
 			perror("execve");
@@ -39,11 +35,10 @@ int execute_command(const char *command)
 			_exit(EXIT_FAILURE);
 		}
 		free(argv);
-	} 
+	}
 	else
 	{
 		waitpid(pid, &status, 0);
 	}
 	return (0);
 }
-

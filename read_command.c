@@ -6,16 +6,14 @@
  * Returns: buffer
  */
 
-char *read_command(void) 
+char *read_command(void)
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	ssize_t characters_read;
-	
+
 	display_prompt();
-	
 	characters_read = getline(&buffer, &bufsize, stdin);
-	
 	if (characters_read == -1)
 	{
 		if (feof(stdin))
@@ -29,7 +27,6 @@ char *read_command(void)
 			exit(EXIT_FAILURE);
 		}
 	}
-	
 	if (buffer[characters_read - 1] == '\n')
 	{
 		buffer[characters_read - 1] = '\0';

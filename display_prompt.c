@@ -6,8 +6,9 @@
  * Return: nothing
  */
 
-void display_prompt(void) 
+void display_prompt(void)
 {
 	const char *prompt = "usr@alx$ ";
+
 	print_message(prompt);
 }
