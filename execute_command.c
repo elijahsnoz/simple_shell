@@ -21,13 +21,14 @@ int execute_command(const char *command)
 	if (pid == 0)
 	{
 		char **argv = (char **)malloc(2 * sizeof(char *));
+
 		if (argv == NULL)
 		{
 			perror("malloc");
 			_exit(EXIT_FAILURE);
 		}
 		argv[0] = (char *)command;
-		argv[1] = NULL;		
+		argv[1] = NULL;
 		if (execve(command, argv, NULL) == -1)
 		{
 			perror("execve");
