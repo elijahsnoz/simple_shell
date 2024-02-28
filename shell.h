@@ -12,9 +12,9 @@
 #define MAX_ARGS 64
 
 /* Function prototypes */
-void loop(void);
-char *read_line(void);
-char **split_line(char *line);
+void execute_command(const char *command);
+void user_input(char *command, size_t size);
+void display_prompt(void);
 int execute(char **args);
 
 #endif

@@ -1,33 +1,16 @@
-/* execute.c */
 #include "shell.h"
-
-int execute(char **args) {
-    pid_t pid;
-    int status;
-
-    if (args[0] == NULL) {
-        /* An empty command was entered */
-        return 1;
-    }
-
-    pid = fork();
-    if (pid == 0) {
-        /* Child process */
-        if (execvp(args[0], args) == -1) {
-            perror("shell");
-        }
+void execute_command(const char *command) {
+    pid_t child_pid = fork();
+    if (child_pid == -1) {
+        perror("fork");
         exit(EXIT_FAILURE);
-    } else if (pid < 0) {
-        /* Error forking */
-        perror("shell");
+    } else if (child_pid == 0) {
+        
+        execlp(command, command, (char *)NULL);
+        perror("execlp");
+        exit(EXIT_FAILURE);
     } else {
-        /* Parent process */
-        do {
-            /* Wait for child process to complete */
-            waitpid(pid, &status, WUNTRACED);
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+        
+        wait(NULL);
     }
-
-    return 1;
 }
-
