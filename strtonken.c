@@ -25,7 +25,6 @@ char **strtkn(char *line)
 		free(tmp), tmp = NULL;
 		return (NULL);
 	}
-	
 
 	while (tkn)
 	{
@@ -42,7 +41,6 @@ char **strtkn(char *line)
 	}
 	
 	tkn = strtok(line, DELIM);
-	
 	while (tkn)
 	{
 		cmd[i] = _strdup(tkn);

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	int status = 0;
 	(void)argc;
 
-	while(1)
+	while (1)
 	{
 		input = read_line();
 		if (input == NULL)
