@@ -11,9 +11,8 @@ int execute_command(const char *command)
 {
 	pid_t pid;
 	int status;
-	
+
 	pid = fork();
-	
 	if (pid == -1)
 	{
 		perror("fork");
@@ -39,7 +38,6 @@ int execute_command(const char *command)
 			free(argv);
 			_exit(EXIT_FAILURE);
 		}
-		
 		free(argv);
 	} 
 	else

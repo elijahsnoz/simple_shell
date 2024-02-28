@@ -4,6 +4,7 @@
  * display_prompt - a function that display promt
  *
  * Return: nothing
+ */
 
 void display_prompt(void) 
 {
