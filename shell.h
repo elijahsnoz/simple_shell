@@ -1,17 +1,20 @@
+/* shell.h */
 #ifndef SHELL_H
 #define SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
+#define MAX_COMMAND_LENGTH 1024
+#define MAX_ARGS 64
 
-void display_prompt(void);
-void read_command(char *command, size_t size);
-void print_message(const char *message);
-void execute_command(const char *command);
+/* Function prototypes */
+void loop(void);
+char *read_line(void);
+char **split_line(char *line);
+int execute(char **args);
 
 #endif
-
