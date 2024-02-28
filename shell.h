@@ -9,9 +9,9 @@
 
 
 void display_prompt(void);
-char *read_command(void);
+void read_command(char *command, size_t size);
 void print_message(const char *message);
-int execute_command(const char *command);
+void execute_command(const char *command);
 
 #endif
 
