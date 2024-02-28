@@ -18,7 +18,7 @@ char *read_command(void)
 		if (feof(stdin))
 		{
 			print_message("\n");
-			return (NULL);
+			exit(EXIT_SUCCESS);
 		}
 		else
 		{
