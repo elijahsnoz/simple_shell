@@ -12,7 +12,6 @@ char *read_command(void)
 	size_t bufsize = 0;
 	ssize_t characters_read;
 
-	display_prompt();
 	characters_read = getline(&buffer, &bufsize, stdin);
 	if (characters_read == -1)
 	{
